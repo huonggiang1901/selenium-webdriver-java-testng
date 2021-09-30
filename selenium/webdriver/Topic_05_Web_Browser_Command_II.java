@@ -51,7 +51,7 @@ public class Topic_05_Web_Browser_Command_II {
 	@Test
 	public void TC_02_Verify_Title() {
 
-		System.out.println("TC 02 - Verify Title");
+		System.out.println("\nTC 02 - Verify Title");
 
 		System.out.println("	Step 01: Truy cập vào trang: http://live.techpanda.org/index.php/");
 		driver.get("http://live.techpanda.org/index.php/");
@@ -72,7 +72,7 @@ public class Topic_05_Web_Browser_Command_II {
 	@Test
 	public void TC_03_Navigate_function() {
 
-		System.out.println("TC 03 - Navigate function");
+		System.out.println("\nTC 03 - Navigate function");
 
 		System.out.println("	Step 01: Truy cập vào trang: http://live.techpanda.org/index.php/");
 		driver.get("http://live.techpanda.org/index.php/");
@@ -104,7 +104,7 @@ public class Topic_05_Web_Browser_Command_II {
 	@Test
 	public void TC_04_Get_Page_Source_Code() {
 
-		System.out.println("TC 04 - Get Page Source Code");
+		System.out.println("\nTC 04 - Get Page Source Code");
 
 		System.out.println("	Step 01: Truy cập vào trang: http://live.techpanda.org/index.php/");
 		driver.get("http://live.techpanda.org/index.php/");
