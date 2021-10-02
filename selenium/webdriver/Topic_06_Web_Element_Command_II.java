@@ -158,6 +158,5 @@ public class Topic_06_Web_Element_Command_II {
 
 	public void clickElement(By locator) {
 		driver.findElement(locator).click();
-
 	}
 }
