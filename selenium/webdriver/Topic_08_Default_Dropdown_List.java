@@ -90,7 +90,7 @@ public class Topic_08_Default_Dropdown_List {
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='result_count']/span")).getText(), resultCount);
 
 		System.out.println("	Step 07: In ra console tất cả các Distributor name");
-		List<WebElement> storeName = driver
+		List <WebElement> storeName = driver
 				.findElements(By.xpath("//div[@id='search_results']//div[@class='store_name']"));
 		Assert.assertEquals(String.valueOf(storeName.size()), resultCount);
 		for (WebElement store : storeName)
@@ -118,8 +118,7 @@ public class Topic_08_Default_Dropdown_List {
 		select = new Select(driver.findElement(dayOfBirthDropdown));
 		Assert.assertEquals(String.valueOf(select.getOptions().size()), dayTotalOptions);
 		select.selectByVisibleText(dayOfBirth);
-		
-		
+				
 		// Month = May (Kiểm tra dropdown có 13 items)
 		select = new Select(driver.findElement(monthOfBirthDropdown));
 		Assert.assertEquals(String.valueOf(select.getOptions().size()), monthTotalOptions);
@@ -151,9 +150,7 @@ public class Topic_08_Default_Dropdown_List {
 		Assert.assertEquals(select.getFirstSelectedOption().getText(), monthOfBirth);
 
 		select = new Select(driver.findElement(yearOfBirthDropdown));
-		Assert.assertEquals(select.getFirstSelectedOption().getText(), yearOfBirth);
-
-		
+		Assert.assertEquals(select.getFirstSelectedOption().getText(), yearOfBirth);		
 	}
 
 	@AfterClass
