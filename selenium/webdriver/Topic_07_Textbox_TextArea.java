@@ -15,7 +15,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_07_Custom_Textbox_TextArea {
+public class Topic_07_Textbox_TextArea {
 	WebDriver driver;
 	JavascriptExecutor js;
 	String projectPath = System.getProperty("user.dir");
@@ -99,7 +99,7 @@ public class Topic_07_Custom_Textbox_TextArea {
 
 		System.out.println("	Step 04: Nhập toàn bộ dữ liệu đúng > Click Submit");
 		sendKeysToElement(nameTextbox, name);
-		clickRadioButton(gender);
+		clickGender(gender);
 		enterDateOfBirthTextbox(dateOfBirth);
 		sendKeysToElement(addressTextarea, address);
 		sendKeysToElement(cityTextbox, city);
@@ -176,7 +176,7 @@ public class Topic_07_Custom_Textbox_TextArea {
 		return dateFormat.format(currentDate).toString().replace(":", "");
 	}
 
-	public void clickRadioButton(String gender) {
+	public void clickGender(String gender) {
 		if (gender == "male")
 			driver.findElement(maleGenderRadioBtn).click();
 		else
