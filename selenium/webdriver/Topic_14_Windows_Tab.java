@@ -29,7 +29,7 @@ public class Topic_14_Windows_Tab {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		js = (JavascriptExecutor) driver;
-		expliciteWait = new WebDriverWait(driver,15);
+		expliciteWait = new WebDriverWait(driver, 15);
 
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -56,14 +56,18 @@ public class Topic_14_Windows_Tab {
 
 		System.out.println("	Step 05: Click \"FACEBOOK\" link -> Switch qua tab mới");
 		clickElement(By.xpath("//a[text()='FACEBOOK']"));
-//		switchWindowByTitle("Facebook - Đăng nhập hoặc đăng ký");
-		switchWindowByTitle("Facebook – log in or sign up");
 
+		String language = js.executeScript("return navigator.language").toString();
+		if (language == "vi-VN")
+			switchWindowByTitle("Facebook - Đăng nhập hoặc đăng ký");
+		else
+			switchWindowByTitle("Facebook – log in or sign up");
 
 		System.out.println("	Step 06: Kiểm tra title của window mới = Facebook - Đăng nhập hoặc đăng ký");
-//		Assert.assertEquals(driver.getTitle(), "Facebook - Đăng nhập hoặc đăng ký");
-		Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
-
+		if (language == "vi-VN")
+			Assert.assertEquals(driver.getTitle(), "Facebook - Đăng nhập hoặc đăng ký");
+		else
+			Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
 
 		System.out.println("	Step 07: Switch về parent window");
 		switchToParentWindow(parentWindow);
@@ -101,11 +105,14 @@ public class Topic_14_Windows_Tab {
 		clickElement(By.xpath("//div[@class='hotline']//img[@alt='facebook']"));
 		clickElement(By.xpath("//div[@class='hotline']//img[@alt='youtube']"));
 
-//		switchWindowByTitle("Kyna.vn - Trang chủ | Facebook");
-		switchWindowByTitle("Kyna.vn - Home | Facebook");
-		
-//		Assert.assertEquals(driver.getTitle(), "Kyna.vn - Trang chủ | Facebook");
-		Assert.assertEquals(driver.getTitle(), "Kyna.vn - Home | Facebook");
+		String language = js.executeScript("return navigator.language").toString();
+		if (language == "vi-VN") {
+			switchWindowByTitle("Kyna.vn - Trang chủ | Facebook");
+			Assert.assertEquals(driver.getTitle(), "Kyna.vn - Trang chủ | Facebook");
+		} else {
+			switchWindowByTitle("Kyna.vn - Home | Facebook");
+			Assert.assertEquals(driver.getTitle(), "Kyna.vn - Home | Facebook");
+		}
 		
 		driver.close();
 
@@ -120,13 +127,15 @@ public class Topic_14_Windows_Tab {
 
 		clickElement(By.xpath("//img[contains(@src,'dathongbao')]"));
 
-//		switchWindowByTitle("Kyna.vn - Trang chủ | Facebook");
-		switchWindowByTitle("Kyna.vn - Home | Facebook");
+		language = js.executeScript("return navigator.language").toString();
+		if (language == "vi-VN") {
+			switchWindowByTitle("Kyna.vn - Trang chủ | Facebook");
+			Assert.assertEquals(driver.getTitle(), "Kyna.vn - Trang chủ | Facebook");
+		} else {
+			switchWindowByTitle("Kyna.vn - Home | Facebook");
+			Assert.assertEquals(driver.getTitle(), "Kyna.vn - Home | Facebook");
+		}
 		
-//		Assert.assertEquals(driver.getTitle(), "Kyna.vn - Trang chủ | Facebook");
-		Assert.assertEquals(driver.getTitle(), "Kyna.vn - Home | Facebook");
-
-
 		switchWindowByTitle("Thông tin website thương mại điện tử - Online.Gov.VN");
 		Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'logoSaleNoti.png')]")).isDisplayed());
 		driver.close();
@@ -149,43 +158,52 @@ public class Topic_14_Windows_Tab {
 		System.out.println("	Step 01: Truy cập vào trang: http://live.guru99.com/index.php/");
 		driver.get("http://live.guru99.com/index.php/");
 		String parentWindow = driver.getWindowHandle();
-		
+
 		System.out.println("	Step 02: Click vào Mobile tab");
 		driver.findElement(By.xpath("//a[text()='Mobile']")).click();
-		
+
 		System.out.println(
 				"	Step 03: Add sản phẩm Sony Xperia vào để COmpare (Add to Compare). Verify text hiển thị: The product Sony Xperia has been added to comparision list.");
-		driver.findElement(By.xpath("//a[@title='Sony Xperia']/parent::h2/following-sibling::div[@class='actions']//a[text()='Add to Compare']")).click();
-		
-		Assert.assertTrue(driver.findElement(By.xpath("//span[text()='The product Sony Xperia has been added to comparison list.']")).isDisplayed());
-		
+		driver.findElement(By.xpath(
+				"//a[@title='Sony Xperia']/parent::h2/following-sibling::div[@class='actions']//a[text()='Add to Compare']"))
+				.click();
+
+		Assert.assertTrue(driver
+				.findElement(By.xpath("//span[text()='The product Sony Xperia has been added to comparison list.']"))
+				.isDisplayed());
+
 		System.out.println(
 				"	Step 04: Add sản phẩm Samsung Galaxy vào để Compare (Add to Compare). Verify text hiển thị: The product Samsung Galaxy has been added tp comparision list.");
-		driver.findElement(By.xpath("//a[@title='Samsung Galaxy']/parent::h2/following-sibling::div[@class='actions']//a[text()='Add to Compare']")).click();
+		driver.findElement(By.xpath(
+				"//a[@title='Samsung Galaxy']/parent::h2/following-sibling::div[@class='actions']//a[text()='Add to Compare']"))
+				.click();
 
-		Assert.assertTrue(driver.findElement(By.xpath("//span[text()='The product Samsung Galaxy has been added to comparison list.']")).isDisplayed());
-		
+		Assert.assertTrue(driver
+				.findElement(By.xpath("//span[text()='The product Samsung Galaxy has been added to comparison list.']"))
+				.isDisplayed());
+
 		System.out.println("	Step 05: Click to Compare button");
 		driver.findElement(By.xpath("//button[@title='Compare']")).click();
-		
+
 		System.out.println("	Step 06: Switch qua cửa sổ mới");
 		switchWindowByTitle("Products Comparison List - Magento Commerce");
-		
+
 		System.out.println("	Step 07: Verify title cửa sổ mới bằng: Products Comparision List - Magento Commerce");
 		Assert.assertEquals(driver.getTitle(), "Products Comparison List - Magento Commerce");
-		
+
 		System.out.println("	Step 08: Clocse tab và chuyển về Parent Window");
 		driver.close();
 		switchToParentWindow(parentWindow);
-		
+
 		System.out.println("	Step 09: Click 'Clear All' link và accept alert");
 		driver.findElement(By.xpath("//a[text()='Clear All']")).click();
 		alert = expliciteWait.until(ExpectedConditions.alertIsPresent());
 		driver.switchTo().alert().accept();
-		
+
 		System.out.println("	Step 10: Verify message xuất hiện: The comparision list was cleared.");
-		Assert.assertTrue(driver.findElement(By.xpath("//span[text()='The comparison list was cleared.']")).isDisplayed());
-		
+		Assert.assertTrue(
+				driver.findElement(By.xpath("//span[text()='The comparison list was cleared.']")).isDisplayed());
+
 	}
 
 	@AfterClass
