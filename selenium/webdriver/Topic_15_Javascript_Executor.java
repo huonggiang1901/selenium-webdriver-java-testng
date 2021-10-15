@@ -3,11 +3,13 @@ package webdriver;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -20,7 +22,7 @@ public class Topic_15_Javascript_Executor {
 
 	String projectPath = System.getProperty("user.dir");
 
-	String email = "kane" + getcurrentDateAndTime() + "@gmail.com";
+	String email = "kane" + getcurrentDateAndTime() + "@gmail.net";
 
 	@BeforeClass
 	public void BeforeClass() {
@@ -34,39 +36,49 @@ public class Topic_15_Javascript_Executor {
 		driver.manage().window().maximize();
 	}
 
-//	@Test
+	@Test
 	public void TC_01_Javascript_Executor() {
 
 		System.out.println("TC 01 - Javascript Executor");
 
-		System.out.println("	Step 01: Truy cập vào trang: http://live.demoguru99.com/ (Sử dụng JE)");
-		js.executeScript("window.location = 'http://live.demoguru99.com/'");
+		System.out.println("	Step 01: Truy cập vào trang: http://live.guru99.com/ (Sử dụng JE)");
+		js.executeScript("window.location = 'http://live.guru99.com/'");
 
-		System.out.println("	Step 02: Sử dụng JE để get domain của page. Verify domain = live.demoguru99.com");
-		String domain = js.executeScript("return documan.domain").toString();
-		Assert.assertEquals(domain, "live.demoguru99.com");
+		System.out.println("	Step 02: Sử dụng JE để get domain của page. Verify domain = live.guru99.com");
+		String domain = js.executeScript("return document.domain").toString();
+		Assert.assertEquals(domain, "live.techpanda.org");
 
-		System.out.println("	Step 03: Sử dụng JE để get URL của page. Verify URL = http://live.demoguru99.com/");
-		String URL = js.executeAsyncScript("return document.URL").toString();
-		Assert.assertEquals(URL, "http://live.demoguru99.com/");
+		System.out.println("	Step 03: Sử dụng JE để get URL của page. Verify URL = http://live.guru99.com/");
+		String URL = js.executeScript("return document.URL").toString();
+		Assert.assertEquals(URL, "http://live.techpanda.org/");
 
 		System.out.println("	Step 04: Open MOBILE page bằng JE");
+		js.executeScript("arguments[0].click()", driver.findElement(By.xpath("//a[text()='Mobile']")));
 
 		System.out.println("	Step 05: Add sản phẩm SAMSUNG GALAXY vào Cart (click vào ADD TO CART button bằng JE");
+		js.executeScript("arguments[0].click()", driver.findElement(By.xpath(
+				"//a[@title='Samsung Galaxy']/parent::h2/following-sibling::div[@class='actions']//button[@title='Add to Cart']")));
 
 		System.out.println(
 				"	Step 06: Verify message được hiển thị: Samsung Galaxy was added to your shopping cart. (Sử dụng JE - Get inner text)");
 		String innerText = js.executeScript("return document.documentElement.innerText").toString();
+
 		Assert.assertTrue(innerText.contains("Samsung Galaxy was added to your shopping cart."));
 
 		System.out.println(
 				"	Step 07: Open Customer Service page (Sử dụng JE). Verify title của page = Customer Service (Sử dụng JE)");
+		js.executeScript("arguments[0].click()", driver.findElement(By.xpath("//a[text()='Customer Service']")));
+		Assert.assertEquals(js.executeScript("return document.title").toString(), "Customer Service");
 
 		System.out.println("	Step 08: Scroll tới element Newsletter textbox nằm ở cuối page (Sử dụng JE)");
+		js.executeScript("arguments[0].scrollIntoView(true)",
+				driver.findElement(By.xpath("//input[@id='newsletter']")));
 
 		System.out.println("	Step 09: Input emaail hợp lệ vào Newslatter textbox (Sử dụng JE)");
+		driver.findElement(By.xpath("//input[@id='newsletter']")).sendKeys(email);
 
 		System.out.println("	Step 10: Click vào Subscribe button (Sử dụng JE)");
+		js.executeScript("arguments[0].click()", driver.findElement(By.xpath("//button[@title='Subscribe']")));
 
 		System.out.println(
 				"	Step 11: Verify text có hiển thị (Sử dụng JE - Get innet text): Thank you for your subscription.");
@@ -76,9 +88,11 @@ public class Topic_15_Javascript_Executor {
 		System.out.println(
 				"	Step 12: Navigate tới domain: http://demo.guru99.com/v4/ (Sử dụng JE). Verify domain sau khi navigate = demo.guru99.com");
 		js.executeScript("window.location = 'http://demo.guru99.com/v4/'");
+		domain = js.executeScript("return document.domain").toString();
+		Assert.assertEquals(domain, "demo.guru99.com");
 	}
 
-//	@Test
+	@Test
 	public void TC_02_Adutomationfc_Verify_HTML5_validation_message() {
 
 		By nameTextbox = By.xpath("//input[@id='fname']");
@@ -148,13 +162,40 @@ public class Topic_15_Javascript_Executor {
 		System.out.println("\nTC 03 - Ubuntu Verify HTML5 validation message");
 
 		System.out.println("	Step 01: Access vào trang: https://login.ubuntu.com/");
+		js.executeScript("window.location = 'https://login.ubuntu.com/'");
+
+		List<WebElement> acceptCookies = driver.findElements(By.xpath("//button[@id='cookie-policy-button-accept']"));
+		if (acceptCookies.size() > 0)
+			driver.findElement(By.xpath("//button[@id='cookie-policy-button-accept']")).click();
+
+		driver.findElement(By.xpath("//input[@class='textType']")).sendKeys("a");
+		driver.findElement(By.xpath("//button[@data-qa-id='login_button']")).click();
+		String emailValidatetionMgs = js.executeScript("return arguments[0].validationMessage",
+				driver.findElement(By.xpath("//input[@class='textType']"))).toString();
+		Assert.assertEquals(emailValidatetionMgs, "Please include an '@' in the email address. 'a' is missing an '@'.");
 
 		System.out.println("	Step 02: Access vào trang: https://sieuthimaymocthietbi.com/account/register");
+		js.executeScript("window.location = 'https://sieuthimaymocthietbi.com/account/register'");
+		driver.findElement(By.xpath("//button[@value='Đăng ký']")).click();
+		String lastNameValidatetionMgs = js.executeScript("return arguments[0].validationMessage",
+				driver.findElement(By.xpath("//input[@id='lastName']"))).toString();
+		Assert.assertEquals(lastNameValidatetionMgs, "Please fill out this field.");
 
 		System.out.println("	Step 03: Access vào trang: https://warranty.rode.com/");
+		js.executeScript("window.location = 'https://warranty.rode.com/'");
+		driver.findElement(By.xpath("//button[contains(text(),'Register')]")).click();
+		String firstNameValidatetionMgs = js.executeScript("return arguments[0].validationMessage",
+				driver.findElement(By.xpath("//input[@id='firstname']"))).toString();
+		Assert.assertEquals(firstNameValidatetionMgs, "Please fill out this field.");
 
 		System.out.println("	Step 04: Access vào trang: https://www.pexels.com/vi-vn/join-contributor/");
-
+		js.executeScript("window.location = 'https://www.pexels.com/vi-vn/join-contributor/'");
+		js.executeScript("arguments[0].scrollIntoView(true)",
+				driver.findElement(By.xpath("//button[@class='rd__button rd__button--full-width']")));
+		driver.findElement(By.xpath("//button[@class='rd__button rd__button--full-width']")).click();
+		String nameValidatetionMgs = js.executeScript("return arguments[0].validationMessage",
+				driver.findElement(By.xpath("//input[@id='user_first_name']"))).toString();
+		Assert.assertEquals(nameValidatetionMgs, "Please fill out this field.");
 	}
 
 	@Test
@@ -223,35 +264,46 @@ public class Topic_15_Javascript_Executor {
 				phone);
 		Assert.assertEquals(driver.findElement(By.xpath("//td[text()='Email']/following-sibling::td")).getText(),
 				email);
-
 	}
 
-//	@Test
+	@Test
 	public void TC_05_Create_an_Account() {
 
 		System.out.println("\nTC 05 - Create an Account");
 
-		System.out.println("	Step 01: Truy cập vào trang: http://live.demoguru99.com/ (Sử dụng JE)");
-		js.executeScript("window.location = 'http://live.demoguru99.com/'");
+		System.out.println("	Step 01: Truy cập vào trang: http://live.guru99.com/ (Sử dụng JE)");
+		js.executeScript("window.location = 'http://live.guru99.com/'");
 
 		System.out.println(
 				"	Step 02: Click vào link \"My Account\" trên header (ẩn) để tới trang đăng nhập (Sử dụng JE - CLick trực tiếp vào My account, ko click vào ACCOUNT link)");
+		js.executeScript("arguments[0].click()",
+				driver.findElement(By.xpath("//div[@id='header-account']//a[@title='My Account']")));
 
 		System.out.println("	Step 03: Click CREATE AN ACCOUNT button để tới trang đăng kí tài khoản (Sử dụng JE)");
+		js.executeScript("arguments[0].click()", driver.findElement(By.xpath("//a[@title='Create an Account']")));
 
 		System.out.println(
 				"	Step 04: Nhập thông tin hợp lệ vào tất cả các field: First Name/ Last Name/ Email Address/ Password/ Confirm Password (SỬ dụng JE)");
+		driver.findElement(By.xpath("//input[@id='firstname']")).sendKeys("Jan");
+		driver.findElement(By.xpath("//input[@id='lastname']")).sendKeys("Kane");
+		driver.findElement(By.xpath("//input[@id='email_address']")).sendKeys(email);
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Abc/123456");
+		driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("Abc/123456");
 
 		System.out.println("	Step 05: Click REGISTER button (Sử dụng JE)");
+		js.executeScript("arguments[0].click()", driver.findElement(By.xpath("//button[@title='Register']")));
 
 		System.out.println(
 				"	Step 06: Verify message xuất hiện khi đăng kí thành công: Thank you for registering with Main Website Store. (Sử dụng JE)");
+		String innerText = js.executeScript("return document.documentElement.innerText").toString();
+		Assert.assertTrue(innerText.contains("Thank you for registering with Main Website Store."));
 
 		System.out.println("	Step 07: Logout khỏi hệ thống (Sử dụng JE)");
+		js.executeScript("arguments[0].click()", driver.findElement(By.xpath("//a[@title='Log Out']")));
 
-		System.out.println(
-				"	Step 08: Kiểm tra hệ thống navigate về Home page sau khi logout thành công (Sử dụng hàm isDisplayed để check wait");
-
+		System.out.println("	Step 08: Kiểm tra hệ thống navigate về Home page sau khi logout thành công");
+		sleepInSeconds(6);
+		Assert.assertEquals(js.executeScript("return document.title"), "Home page");
 	}
 
 	@AfterClass
@@ -271,6 +323,14 @@ public class Topic_15_Javascript_Executor {
 		sdf.applyPattern(newFormat);
 		String newDateString = sdf.format(d);
 		return newDateString;
+	}
+
+	public void sleepInSeconds(int seconds) {
+		try {
+			Thread.sleep(seconds * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -48,8 +48,8 @@ public class Topic_04_Xpath_Css_III {
 
 		System.out.println("TC 05 - Create a new account");
 
-		System.out.println("	Step 01: Truy cập vào trang: http://live.demoguru99.com/");
-		driver.get("http://live.demoguru99.com/");
+		System.out.println("	Step 01: Truy cập vào trang: http://live.guru99.com/");
+		driver.get("http://live.guru99.com/");
 
 		System.out.println("	Step 02: Click vào link \"My Account\" để tới trang đăng nhập");
 		driver.findElement(myAccountLnk).click();
@@ -107,8 +107,8 @@ public class Topic_04_Xpath_Css_III {
 
 		System.out.println("\nTC 06 - Login with valid Email and Password");
 
-		System.out.println("	Step 01: Truy cập vào trang: http://live.demoguru99.com/");
-		driver.get("http://live.demoguru99.com/");
+		System.out.println("	Step 01: Truy cập vào trang: http://live.guru99.com/");
+		driver.get("http://live.guru99.com/");
 
 		System.out.println("	Step 02: Click vào link \"My Account\" để tới trang đăng nhập");
 		driver.findElement(myAccountLnk).click();

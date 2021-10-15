@@ -29,8 +29,8 @@ public class Topic_04_Xpath_Css_I {
 
 		System.out.println("TC 01 - Login with empty Email and Password");
 
-		System.out.println("	Step 01 - Truy cập vào trang: http://live.demoguru99.com/");
-		driver.get("http://live.demoguru99.com/");
+		System.out.println("	Step 01 - Truy cập vào trang: http://live.guru99.com/");
+		driver.get("http://live.guru99.com/");
 
 		System.out.println("	Step 02 - Click vào link \"My Account\" để tới trang đăng nhập");
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
@@ -54,8 +54,8 @@ public class Topic_04_Xpath_Css_I {
 
 		System.out.println("\nTC 02 - Login with invalid Email");
 
-		System.out.println("	Step 01 - Truy cập vào trang: http://live.demoguru99.com/");
-		driver.get("http://live.demoguru99.com/");
+		System.out.println("	Step 01 - Truy cập vào trang: http://live.guru99.com/");
+		driver.get("http://live.guru99.com/");
 
 		System.out.println("	Step 02 - Click vào link \"My Account\" để tới trang đăng nhập");
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
@@ -78,8 +78,8 @@ public class Topic_04_Xpath_Css_I {
 
 		System.out.println("\nTC 03 - Login with Password less than 6 characters");
 
-		System.out.println("	Step 01 - Truy cập vào trang: http://live.demoguru99.com/");
-		driver.get("http://live.demoguru99.com/");
+		System.out.println("	Step 01 - Truy cập vào trang: http://live.guru99.com/");
+		driver.get("http://live.guru99.com/");
 
 		System.out.println("	Step 02 - Click vào link \"My Account\" để tới trang đăng nhập");
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
@@ -102,8 +102,8 @@ public class Topic_04_Xpath_Css_I {
 
 		System.out.println("\nTC 04 - Login with incorrect Email and Password");
 
-		System.out.println("	Step 01 - Truy cập vào trang: http://live.demoguru99.com/");
-		driver.get("http://live.demoguru99.com/");
+		System.out.println("	Step 01 - Truy cập vào trang: http://live.guru99.com/");
+		driver.get("http://live.guru99.com/");
 
 		System.out.println("	Step 02 - Click vào link \"My Account\" để tới trang đăng nhập");
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
