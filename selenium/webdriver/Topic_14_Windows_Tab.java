@@ -57,17 +57,10 @@ public class Topic_14_Windows_Tab {
 		System.out.println("	Step 05: Click \"FACEBOOK\" link -> Switch qua tab mới");
 		clickElement(By.xpath("//a[text()='FACEBOOK']"));
 
-		String language = js.executeScript("return navigator.language").toString();
-		if (language == "vi-VN")
-			switchWindowByTitle("Facebook - Đăng nhập hoặc đăng ký");
-		else
-			switchWindowByTitle("Facebook – log in or sign up");
+		switchWindowByTitle("Facebook – log in or sign up");
 
 		System.out.println("	Step 06: Kiểm tra title của window mới = Facebook - Đăng nhập hoặc đăng ký");
-		if (language == "vi-VN")
-			Assert.assertEquals(driver.getTitle(), "Facebook - Đăng nhập hoặc đăng ký");
-		else
-			Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
+		Assert.assertEquals(driver.getTitle(), "Facebook – log in or sign up");
 
 		System.out.println("	Step 07: Switch về parent window");
 		switchToParentWindow(parentWindow);
@@ -106,14 +99,10 @@ public class Topic_14_Windows_Tab {
 		clickElement(By.xpath("//div[@class='hotline']//img[@alt='youtube']"));
 
 		String language = js.executeScript("return navigator.language").toString();
-		if (language == "vi-VN") {
-			switchWindowByTitle("Kyna.vn - Trang chủ | Facebook");
-			Assert.assertEquals(driver.getTitle(), "Kyna.vn - Trang chủ | Facebook");
-		} else {
-			switchWindowByTitle("Kyna.vn - Home | Facebook");
-			Assert.assertEquals(driver.getTitle(), "Kyna.vn - Home | Facebook");
-		}
-		
+
+		switchWindowByTitle("Kyna.vn - Home | Facebook");
+		Assert.assertEquals(driver.getTitle(), "Kyna.vn - Home | Facebook");
+
 		driver.close();
 
 		switchWindowByTitle("Kyna.vn - YouTube");
@@ -127,15 +116,9 @@ public class Topic_14_Windows_Tab {
 
 		clickElement(By.xpath("//img[contains(@src,'dathongbao')]"));
 
-		language = js.executeScript("return navigator.language").toString();
-		if (language == "vi-VN") {
-			switchWindowByTitle("Kyna.vn - Trang chủ | Facebook");
-			Assert.assertEquals(driver.getTitle(), "Kyna.vn - Trang chủ | Facebook");
-		} else {
-			switchWindowByTitle("Kyna.vn - Home | Facebook");
-			Assert.assertEquals(driver.getTitle(), "Kyna.vn - Home | Facebook");
-		}
-		
+		switchWindowByTitle("Kyna.vn - Home | Facebook");
+		Assert.assertEquals(driver.getTitle(), "Kyna.vn - Home | Facebook");
+
 		switchWindowByTitle("Thông tin website thương mại điện tử - Online.Gov.VN");
 		Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'logoSaleNoti.png')]")).isDisplayed());
 		driver.close();
