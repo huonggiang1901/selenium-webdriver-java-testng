@@ -98,8 +98,6 @@ public class Topic_14_Windows_Tab {
 		clickElement(By.xpath("//div[@class='hotline']//img[@alt='facebook']"));
 		clickElement(By.xpath("//div[@class='hotline']//img[@alt='youtube']"));
 
-		String language = js.executeScript("return navigator.language").toString();
-
 		switchWindowByTitle("Kyna.vn - Home | Facebook");
 		Assert.assertEquals(driver.getTitle(), "Kyna.vn - Home | Facebook");
 
