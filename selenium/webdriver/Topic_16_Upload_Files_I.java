@@ -43,7 +43,7 @@ public class Topic_16_Upload_Files_I {
 		driver.manage().window().maximize();
 	}
 
-//	@Test
+	@Test
 	public void TC_01_Upload_file_by_sendkeys() {
 
 		System.out.println("TC 01 - Upload file by sendkeys");
@@ -77,7 +77,7 @@ public class Topic_16_Upload_Files_I {
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@class='name']/a[text()='" + image03 + "']")).isDisplayed());
 	}
 
-//	@Test
+	@Test
 	public void TC_02_Upload_multiple_files_by_sendkeys() {
 
 		System.out.println("\nTC 02 - Upload multiple files by sendkeys");
