@@ -13,7 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_17_Wait_Part_I {
+public class Topic_17_Wait_Part_I_Conditions_Status {
 	WebDriver driver;
 	WebDriverWait expliciteWait;
 
