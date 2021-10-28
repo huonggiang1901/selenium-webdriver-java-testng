@@ -2,6 +2,7 @@ package webdriver;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -10,7 +11,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,6 +20,8 @@ import org.testng.annotations.Test;
 public class Topic_00_Template {
 	WebDriver driver;
 	JavascriptExecutor js;
+	Calendar calendar;
+	WebDriverWait explicitWait;
 
 	String projectPath = System.getProperty("user.dir");
 	
@@ -29,6 +33,8 @@ public class Topic_00_Template {
 		
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
+		
+		explicitWait = new WebDriverWait(driver, 15);
 		
 		js = (JavascriptExecutor) driver;
 
@@ -59,6 +65,10 @@ public class Topic_00_Template {
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyHH:mm:ss");
 		return dateFormat.format(currentDate).toString().replace(":", "");
+	}
+	
+	public int getCurrentDate() {
+		return calendar.get(Calendar.DAY_OF_MONTH);
 	}
 	
 	public void scrollIntoView(WebElement element) {
@@ -108,5 +118,13 @@ public class Topic_00_Template {
 		sdf.applyPattern(newFormat);		
 		String newDateString = sdf.format(d);
 		return newDateString;
+	}
+	
+	public void clickAcceptCookiesBtn(By acceptCookies) {
+		sleepInSeconds(2);
+		if (driver.findElement(acceptCookies).isDisplayed() == true) {
+			driver.findElement(acceptCookies).click();
+			explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(acceptCookies));
+		}
 	}
 }

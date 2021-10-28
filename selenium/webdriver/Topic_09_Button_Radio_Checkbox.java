@@ -2,7 +2,6 @@ package webdriver;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -11,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -19,6 +20,7 @@ import org.testng.annotations.Test;
 public class Topic_09_Button_Radio_Checkbox {
 	WebDriver driver;
 	JavascriptExecutor js;
+	WebDriverWait explicitWait;
 
 	String projectPath = System.getProperty("user.dir");
 
@@ -44,6 +46,7 @@ public class Topic_09_Button_Radio_Checkbox {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 
+		explicitWait = new WebDriverWait(driver, 15);
 		js = (JavascriptExecutor) driver;
 
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -214,9 +217,10 @@ public class Topic_09_Button_Radio_Checkbox {
 	}
 
 	public void clickAcceptCookiesBtn(By acceptCookies) {
-		List<WebElement> acceptCookiesBtn = driver.findElements(acceptCookies);
-		if (acceptCookiesBtn.size() > 0)
+		if (driver.findElement(acceptCookies).isDisplayed() == true) {
 			driver.findElement(acceptCookies).click();
+			explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(acceptCookies));
+		}
 	}
 	
 	public void clickRadioBtnByJS(By checkbox) {
