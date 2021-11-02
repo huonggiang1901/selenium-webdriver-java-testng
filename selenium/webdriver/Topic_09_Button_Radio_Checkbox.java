@@ -2,6 +2,7 @@ package webdriver;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -217,7 +218,8 @@ public class Topic_09_Button_Radio_Checkbox {
 	}
 
 	public void clickAcceptCookiesBtn(By acceptCookies) {
-		if (driver.findElement(acceptCookies).isDisplayed() == true) {
+		List<WebElement> acceptCookiesBtn = driver.findElements(acceptCookies);
+		if (acceptCookiesBtn.size() > 0) {
 			driver.findElement(acceptCookies).click();
 			explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(acceptCookies));
 		}

@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -121,8 +122,8 @@ public class Topic_00_Template {
 	}
 	
 	public void clickAcceptCookiesBtn(By acceptCookies) {
-		sleepInSeconds(2);
-		if (driver.findElement(acceptCookies).isDisplayed() == true) {
+		List<WebElement> acceptCookiesBtn = driver.findElements(acceptCookies);
+		if (acceptCookiesBtn.size() > 0) {
 			driver.findElement(acceptCookies).click();
 			explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(acceptCookies));
 		}

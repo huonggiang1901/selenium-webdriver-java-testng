@@ -3,6 +3,7 @@ package webdriver;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -59,7 +60,7 @@ public class Topic_17_Wait_V_Explicit {
 //	@Test
 	public void TC_05_Explicit_Wait_Visibility() {
 
-		System.out.println("TC 04 - Explicit Wait Invisibility");
+		System.out.println("\nTC 05 - Explicit Wait Visibility");
 
 		System.out.println("	Step 01: Truy cập vào trang: https://automationfc.github.io/dynamic-loading/");
 		driver.get("https://automationfc.github.io/dynamic-loading/");
@@ -77,7 +78,7 @@ public class Topic_17_Wait_V_Explicit {
 	@Test
 	public void TC_06_explicitWait() {
 
-		System.out.println("TC 06 - explicitWait");
+		System.out.println("\nTC 06 - explicitWait");
 
 		System.out.println(
 				"	Step 01: Truy cập vào trang: https://demos.telerik.com/aspnet-ajax/ajaxloadingpanel/functionality/explicit-show-hide/defaultcs.aspx");
@@ -103,11 +104,11 @@ public class Topic_17_Wait_V_Explicit {
 
 		System.out.println("	Step 06: Wait cho selected date được selected");
 		explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-				By.xpath("//td[@class='rcSelected']/a[text()='" + String.valueOf(getCurrentDate()) + "']")));
+				By.xpath("//td[@class='rcSelected rcHover']/a[text()='" + String.valueOf(getCurrentDate()) + "']")));
 
 		System.out.println("	Step 07: Verify ngày đã chọn");
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='RadAjaxPanel']/span")).getText(),
-				getToday("EEEE, MMMM dd, yyyy"));
+				getToday("EEEE, MMMM d, yyyy"));
 
 	}
 
@@ -126,7 +127,8 @@ public class Topic_17_Wait_V_Explicit {
 
 	public void clickAcceptCookiesBtn(By acceptCookies) {
 		sleepInSeconds(2);
-		if (driver.findElement(acceptCookies).isDisplayed() == true) {
+		List<WebElement> acceptCookiesBtn = driver.findElements(acceptCookies);
+		if (acceptCookiesBtn.size() > 0) {
 			driver.findElement(acceptCookies).click();
 			explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(acceptCookies));
 		}
