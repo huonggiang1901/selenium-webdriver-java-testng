@@ -39,7 +39,7 @@ public class Topic_17_Wait_V_Explicit {
 		driver.manage().window().maximize();
 	}
 
-//	@Test
+	@Test
 	public void TC_04_Explicit_Wait_Invisibility() {
 
 		System.out.println("TC 04 - Explicit Wait Invisibility");
@@ -57,7 +57,7 @@ public class Topic_17_Wait_V_Explicit {
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@id='finish']/h4")).getText(), "Hello World!");
 	}
 
-//	@Test
+	@Test
 	public void TC_05_Explicit_Wait_Visibility() {
 
 		System.out.println("\nTC 05 - Explicit Wait Visibility");
