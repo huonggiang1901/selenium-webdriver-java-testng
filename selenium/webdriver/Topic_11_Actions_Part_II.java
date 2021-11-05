@@ -168,7 +168,7 @@ public class Topic_11_Actions_Part_II {
 
 	public void sleepInSeconds(int seconds) {
 		try {
-			Thread.sleep(seconds * 1000);
+			TimeUnit.SECONDS.sleep(seconds);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

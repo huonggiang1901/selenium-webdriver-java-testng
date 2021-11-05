@@ -161,7 +161,7 @@ public class Topic_07_Textbox_TextArea {
 
 	@AfterClass
 	public void AfterClass() {
-//		driver.quit();
+		driver.quit();
 	}
 
 	public void sendKeysToElement(By locator, String value) {
@@ -199,7 +199,7 @@ public class Topic_07_Textbox_TextArea {
 
 	public void sleepInSeconds(int seconds) {
 		try {
-			Thread.sleep(seconds * 1000);
+			TimeUnit.SECONDS.sleep(seconds);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

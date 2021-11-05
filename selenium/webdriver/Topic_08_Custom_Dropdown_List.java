@@ -267,7 +267,7 @@ public class Topic_08_Custom_Dropdown_List {
 
 	public void sleepInSeconds(int seconds) {
 		try {
-			Thread.sleep(seconds * 1000);
+			TimeUnit.SECONDS.sleep(seconds);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

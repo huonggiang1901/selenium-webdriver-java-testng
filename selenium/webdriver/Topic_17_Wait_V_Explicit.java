@@ -4,12 +4,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -30,8 +31,8 @@ public class Topic_17_Wait_V_Explicit {
 	@BeforeClass
 	public void BeforeClass() {
 
-		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+		driver = new FirefoxDriver();
 		js = (JavascriptExecutor) driver;
 
 		explicitWait = new WebDriverWait(driver, 15);
@@ -119,7 +120,7 @@ public class Topic_17_Wait_V_Explicit {
 
 	public void sleepInSeconds(int seconds) {
 		try {
-			Thread.sleep(seconds * 1000);
+			TimeUnit.SECONDS.sleep(seconds);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

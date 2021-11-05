@@ -56,7 +56,7 @@ public class Topic_00_Template {
 	
 	public void sleepInSeconds(int seconds) {
 		try {
-			Thread.sleep(seconds * 1000);
+			TimeUnit.SECONDS.sleep(seconds);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

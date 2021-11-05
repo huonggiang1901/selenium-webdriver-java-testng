@@ -188,7 +188,7 @@ public class Topic_09_Button_Radio_Checkbox {
 
 	@AfterClass
 	public void AfterClass() {
-//		driver.quit();
+		driver.quit();
 	}
 		
 	public String getCurrentDateAndTime() {
