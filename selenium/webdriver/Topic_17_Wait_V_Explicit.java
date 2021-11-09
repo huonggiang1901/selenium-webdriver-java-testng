@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -25,6 +26,13 @@ public class Topic_17_Wait_V_Explicit {
 	JavascriptExecutor js;
 
 	String projectPath = System.getProperty("user.dir");
+	
+	String image01 = "Image01.jpg";
+	String image02 = "Image02.jpg";
+	String image03 = "Image03.jpg";
+	String image01Path = projectPath + "\\uploadFiles\\" + image01;
+	String image02Path = projectPath + "\\uploadFiles\\" + image02;
+	String image03Path = projectPath + "\\uploadFiles\\" + image03;
 
 	By acceptCokkiesBtn = By.xpath("//button[@id='onetrust-accept-btn-handler']");
 
@@ -110,7 +118,41 @@ public class Topic_17_Wait_V_Explicit {
 		System.out.println("	Step 07: Verify ngày đã chọn");
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='RadAjaxPanel']/span")).getText(),
 				getToday("EEEE, MMMM d, yyyy"));
+	}
+	
+	@Test
+	public void TC_07_explicitWait_Upload_file() {
 
+		System.out.println("\nTC 07 - Explicit Wait Upload file");
+
+		System.out.println("	Step 01: Open URL: https://gofile.io/?t=uploadFiles");
+		driver.get("https://gofile.io/?t=uploadFiles");
+		String parentWindow = driver.getWindowHandle();
+
+		System.out.println("	Step 02: Upload các file và verify file đã được load lên thành công");
+		driver.findElement(By.xpath("//input[@type='file']"))
+				.sendKeys(image01Path + "\n" + image02Path + "\n" + image03Path);
+		explicitWait.until(ExpectedConditions.invisibilityOfAllElements(
+				driver.findElement(By.xpath("//div[@class='progress position-relative mt-1']"))));
+		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='text-center']/i")));
+
+		Assert.assertTrue(driver.findElement(By.xpath("//h5[text()='Your files have been successfully uploaded']"))
+				.isDisplayed());
+
+		System.out.println("	Step 03: Click vào Download link");
+		driver.findElement(By.xpath("//a[@id='rowUploadSuccess-downloadPage']")).click();
+
+		System.out.println("	Step 04: Chuyển qua Tab/ Window mới - kiểm tra các filename hiển thị");
+
+		Set<String> allWindows = driver.getWindowHandles();
+		for (String child : allWindows) {
+			if (!child.equals(parentWindow))
+				driver.switchTo().window(child);
+		}
+
+		Assert.assertTrue(driver.findElement(By.xpath("//span[text() = '" + image01 + "']")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//span[text() = '" + image02 + "']")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//span[text() = '" + image03 + "']")).isDisplayed());
 	}
 
 	@AfterClass
