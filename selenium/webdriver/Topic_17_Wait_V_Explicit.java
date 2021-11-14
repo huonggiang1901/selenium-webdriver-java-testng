@@ -26,7 +26,7 @@ public class Topic_17_Wait_V_Explicit {
 	JavascriptExecutor js;
 
 	String projectPath = System.getProperty("user.dir");
-	
+
 	String image01 = "Image01.jpg";
 	String image02 = "Image02.jpg";
 	String image03 = "Image03.jpg";
@@ -43,7 +43,7 @@ public class Topic_17_Wait_V_Explicit {
 		driver = new ChromeDriver();
 		js = (JavascriptExecutor) driver;
 
-		explicitWait = new WebDriverWait(driver, 15);
+		explicitWait = new WebDriverWait(driver, 30);
 
 		driver.manage().window().maximize();
 	}
@@ -119,7 +119,7 @@ public class Topic_17_Wait_V_Explicit {
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='RadAjaxPanel']/span")).getText(),
 				getToday("EEEE, MMMM d, yyyy"));
 	}
-	
+
 	@Test
 	public void TC_07_explicitWait_Upload_file() {
 
@@ -130,11 +130,17 @@ public class Topic_17_Wait_V_Explicit {
 		String parentWindow = driver.getWindowHandle();
 
 		System.out.println("	Step 02: Upload các file và verify file đã được load lên thành công");
+
+		explicitWait.until((ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-primary btn-lg mb-1 uploadButton']"))));
 		driver.findElement(By.xpath("//input[@type='file']"))
 				.sendKeys(image01Path + "\n" + image02Path + "\n" + image03Path);
 		explicitWait.until(ExpectedConditions.invisibilityOfAllElements(
-				driver.findElement(By.xpath("//div[@class='progress position-relative mt-1']"))));
+				driver.findElements(By.xpath("//div[@class='progress position-relative mt-1']"))));
 		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='text-center']/i")));
+
+		explicitWait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='callout callout-success']/h5")));
 
 		Assert.assertTrue(driver.findElement(By.xpath("//h5[text()='Your files have been successfully uploaded']"))
 				.isDisplayed());
@@ -149,6 +155,9 @@ public class Topic_17_Wait_V_Explicit {
 			if (!child.equals(parentWindow))
 				driver.switchTo().window(child);
 		}
+
+		explicitWait
+				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[@class='contentName']")));
 
 		Assert.assertTrue(driver.findElement(By.xpath("//span[text() = '" + image01 + "']")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//span[text() = '" + image02 + "']")).isDisplayed());

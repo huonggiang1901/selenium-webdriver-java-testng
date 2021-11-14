@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="User Mode">
+
+	<groups>
+
+		<run>
+
+			<!-- <include name="supper" /> -->
+			<exclude name="supper" />
+
+		</run>
+
+	</groups>
+
+	<test name="Run on Firefox">
+		<classes>
+			<class name="testng.Topic_03_Group" />
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->
