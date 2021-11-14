@@ -14,7 +14,7 @@ public class Topic_04_Priority_Skip_Description {
 		System.out.println("Run TC 02");
 	}
 
-//	@Test
+//	@Test(priority = 1)
 	public void User_03_Edit_User() {
 		System.out.println("Run TC 03");
 	}
