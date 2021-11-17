@@ -5,24 +5,6 @@
 		value="https://demo.nopcommerce.com/register" />
 	<parameter name="environment" value="Local" />
 
-	<!-- <groups> -->
-
-	<!-- <run> -->
-
-	<!-- <include name="supper" /> -->
-	<!-- <exclude name="supper" /> -->
-
-	<!-- </run> -->
-
-	<!-- </groups> -->
-
-	<test name="Run on FIREFOX">
-		<parameter name="browser" value="firefox" />
-		<classes>
-			<class name="testng.Topic_06_Parameter" />
-		</classes>
-	</test>
-
 	<test name="Run on CHROME">
 		<parameter name="browser" value="chrome" />
 		<classes>
