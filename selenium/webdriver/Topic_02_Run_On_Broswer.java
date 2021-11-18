@@ -5,6 +5,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class Topic_02_Run_On_Broswer {
+	
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 
@@ -28,13 +29,12 @@ public class Topic_02_Run_On_Broswer {
 		// Selenium 2.53.1
 		// Ko TestNG
 		// Ko Gecko Driver
+		
 		driver = new FirefoxDriver();
 		
 		driver.get("https://demo.nopcommerce.com/register?returnUrl=%2F");
 		
 		driver.quit();
 	}
-
-		
 
 }

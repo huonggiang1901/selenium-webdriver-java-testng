@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_01_Check_Environment {
+	
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 
@@ -30,7 +31,6 @@ public class Topic_01_Check_Environment {
 
 	@Test
 	public void TC_01_ValidateCurrentUrl() {
-
 		// Login Page Url matching
 		String loginPageUrl = driver.getCurrentUrl();
 		Assert.assertEquals(loginPageUrl, "http://demo.guru99.com/v4/");
@@ -38,7 +38,6 @@ public class Topic_01_Check_Environment {
 
 	@Test
 	public void TC_02_ValidatePageTitle() {
-
 		// Login Page title
 		String loginPageTitle = driver.getTitle();
 		Assert.assertEquals(loginPageTitle, "Guru99 Bank Home Page");
@@ -46,7 +45,6 @@ public class Topic_01_Check_Environment {
 
 	@Test
 	public void TC_03_LoginFormDisplayed() {
-
 		// Login form displayed
 		Assert.assertTrue(driver.findElement(By.xpath("//form[@name='frmLogin']")).isDisplayed());
 	}

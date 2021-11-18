@@ -11,11 +11,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_17_Wait_Part_IV_Dead {
+	
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		
@@ -45,7 +46,7 @@ public class Topic_17_Wait_Part_IV_Dead {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
@@ -56,4 +57,5 @@ public class Topic_17_Wait_Part_IV_Dead {
 			e.printStackTrace();
 		}
 	}
+	
 }

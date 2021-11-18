@@ -16,9 +16,10 @@ public class Topic_17_Wait_Part_III_Implicite {
 	String projectPath = System.getProperty("user.dir");
 	
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");		
-		driver = new ChromeDriver();		
+		driver = new ChromeDriver();
+		
 		driver.manage().window().maximize();
 	}
 	
@@ -44,7 +45,8 @@ public class Topic_17_Wait_Part_III_Implicite {
 	}
 	
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}	
+	
 }

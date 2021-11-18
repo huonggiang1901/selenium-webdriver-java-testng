@@ -26,6 +26,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_11_Actions_Part_II {
+	
 	WebDriver driver;
 	JavascriptExecutor js;
 	Actions action;
@@ -36,13 +37,12 @@ public class Topic_11_Actions_Part_II {
 //	String jQueryHelperPath = projectPath + "\\dragAndDrop\\jquery_load_helper.js";
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		js = (JavascriptExecutor) driver;
-
 		action = new Actions(driver);
 
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -162,7 +162,7 @@ public class Topic_11_Actions_Part_II {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 

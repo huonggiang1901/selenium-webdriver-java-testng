@@ -16,13 +16,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_08_Default_Dropdown_List {
+	
 	WebDriver driver;
 	Select select;
 	String projectPath = System.getProperty("user.dir");
 
 	By countryDropdown = By.xpath("//select[@id='where_country']");
 	
-	By maleGenderRadioBtn = By.xpath("//input[@id='gender-male']");
 	By femaleGenderRadioBtn = By.xpath("//input[@id='gender-female']");
 	By firstNameTextbox = By.xpath("//input[@id='FirstName']");
 	By lastNameTextbox = By.xpath("//input[@id='LastName']");
@@ -36,7 +36,7 @@ public class Topic_08_Default_Dropdown_List {
 	By registerBtn = By.xpath("//button[@id='register-button']");
 
 	String selectedCountry = "Vietnam";
-	String resultCount = "29";
+	String resultCount = "31";
 
 	String gender = "female";
 	String firstName = "Jan";
@@ -44,7 +44,7 @@ public class Topic_08_Default_Dropdown_List {
 	String dayOfBirth = "1";
 	String monthOfBirth = "May";
 	String yearOfBirth = "1980";
-	String email = "kane" + getCurrentDateAndTime() + "@gmail.net";
+	String email = "kane" + getStringCurrentDateAndTime() + "@gmail.net";
 	String companyName = "Automation VN";
 	String password = "12345678";
 	
@@ -54,9 +54,10 @@ public class Topic_08_Default_Dropdown_List {
 
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
+		
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
@@ -109,7 +110,7 @@ public class Topic_08_Default_Dropdown_List {
 		driver.findElement(By.xpath("//a[text()='Register']")).click();
 
 		System.out.println("	Step 03: Input các thông tin hợp lệ vào form");
-		clickGender(gender);
+		driver.findElement(femaleGenderRadioBtn).click();
 		sendKeysToElement(firstNameTextbox, firstName);
 		sendKeysToElement(lastNameTextbox, lastName);
 		
@@ -154,21 +155,14 @@ public class Topic_08_Default_Dropdown_List {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 	
-	public String getCurrentDateAndTime() {
+	public String getStringCurrentDateAndTime() {
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyHH:mm:ss");
 		return dateFormat.format(currentDate).toString().replace(":", "");
-	}
-	
-	public void clickGender(String gender) {
-		if (gender == "male")
-			driver.findElement(maleGenderRadioBtn).click();
-		else
-			driver.findElement(femaleGenderRadioBtn).click();
 	}
 	
 	public void sendKeysToElement(By locator, String value) {
@@ -176,4 +170,5 @@ public class Topic_08_Default_Dropdown_List {
 		element.clear();
 		element.sendKeys(value);
 	}
+	
 }

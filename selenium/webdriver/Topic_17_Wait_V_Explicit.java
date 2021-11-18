@@ -20,6 +20,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_17_Wait_V_Explicit {
+	
 	WebDriver driver;
 	WebDriverWait explicitWait;
 	Calendar calendar = Calendar.getInstance();;
@@ -37,12 +38,11 @@ public class Topic_17_Wait_V_Explicit {
 	By acceptCokkiesBtn = By.xpath("//button[@id='onetrust-accept-btn-handler']");
 
 	@BeforeClass
-	public void BeforeClass() {
-
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
+		
 		js = (JavascriptExecutor) driver;
-
 		explicitWait = new WebDriverWait(driver, 30);
 
 		driver.manage().window().maximize();
@@ -98,7 +98,7 @@ public class Topic_17_Wait_V_Explicit {
 		System.out.println("	Step 02: Wait cho \"Date Time Picker\" được hiển thị");
 		explicitWait.until(
 				ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='calendarContainer']")));
-		scrollIntoView(driver.findElement(By.xpath("//div[@class='calendarContainer']")));
+		scrollToBottom(driver.findElement(By.xpath("//div[@class='calendarContainer']")));
 
 		System.out.println(
 				"	Step 03: In ra ngày đã chọn (Before AJAX call) -> hiện tại chưa chọn nên in ra = \"No Selected Dates to display.\"");
@@ -165,7 +165,7 @@ public class Topic_17_Wait_V_Explicit {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
@@ -196,8 +196,9 @@ public class Topic_17_Wait_V_Explicit {
 		return dateFormat.format(date);
 	}
 
-	public void scrollIntoView(WebElement element) {
+	public WebElement scrollToBottom(WebElement element) {
 		js.executeScript("arguments[0].scrollIntoView(false);", element);
+		return element;
 	}
 
 }

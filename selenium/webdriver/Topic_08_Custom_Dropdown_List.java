@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_08_Custom_Dropdown_List {
+	
 	WebDriver driver;
 	WebDriverWait explicitWait;
 	JavascriptExecutor js;
@@ -30,9 +31,10 @@ public class Topic_08_Custom_Dropdown_List {
 	String selectedCountry = "Benin";
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
+		
 		explicitWait = new WebDriverWait(driver, 15);
 		js = (JavascriptExecutor) driver;
 
@@ -168,7 +170,7 @@ public class Topic_08_Custom_Dropdown_List {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
@@ -272,4 +274,5 @@ public class Topic_08_Custom_Dropdown_List {
 			e.printStackTrace();
 		}
 	}
+	
 }

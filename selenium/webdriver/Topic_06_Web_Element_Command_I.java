@@ -13,11 +13,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_06_Web_Element_Command_I {
+	
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
 		
@@ -103,7 +104,8 @@ public class Topic_06_Web_Element_Command_I {
 	}
 	
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
+	
 }

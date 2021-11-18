@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_11_Actions_Part_I {
+	
 	WebDriver driver;
 	Actions action;
 	JavascriptExecutor js;
@@ -28,12 +29,12 @@ public class Topic_11_Actions_Part_I {
 	String selectedBookMenu = "Sách Trong Nước";
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
+		
 		action = new Actions(driver);
-
 		js = (JavascriptExecutor) driver;
 
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -144,7 +145,8 @@ public class Topic_11_Actions_Part_I {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
+
 }

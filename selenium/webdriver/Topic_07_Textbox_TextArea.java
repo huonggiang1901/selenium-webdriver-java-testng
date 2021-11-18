@@ -16,12 +16,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_07_Textbox_TextArea {
+	
 	WebDriver driver;
 	JavascriptExecutor js;
 	String projectPath = System.getProperty("user.dir");
 
 	By nameTextbox = By.xpath("//input[@name='name']");
-	By maleGenderRadioBtn = By.xpath("//input[@value='m']");
 	By femaleGenderRadioBtn = By.xpath("//input[@value='f']");
 	By dateOfBirthTextbox = By.xpath("//input[@id='dob']");
 	By addressTextarea = By.xpath("//textarea[@name='addr']");
@@ -45,14 +45,14 @@ public class Topic_07_Textbox_TextArea {
 	By emailText = By.xpath("//td[text()='Email']/following-sibling::td");
 
 	String name = "Kane";
-	String gender = "male";
+	String gender = "female";
 	String dateOfBirth = "01/19/1995";
 	String address = "921 Monster";
 	String city = "Ho Chi Minh";
 	String state = "HK";
 	String pin = "123456";
 	String phone = "0908001901";
-	String email = "kane" + getCurrentDateAndTime() + "@gmail.net";
+	String email = "kane" + getStringCurrentDateAndTime() + "@gmail.net";
 	String password = "Qwerty/12345678";
 
 	String editedAddress = "988 GH";
@@ -65,6 +65,7 @@ public class Topic_07_Textbox_TextArea {
 	public void BeforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
+		
 		js = (JavascriptExecutor) driver;
 
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -99,7 +100,7 @@ public class Topic_07_Textbox_TextArea {
 
 		System.out.println("	Step 04: Nhập toàn bộ dữ liệu đúng > Click Submit");
 		sendKeysToElement(nameTextbox, name);
-		clickGender(gender);
+		driver.findElement(femaleGenderRadioBtn).click();
 		enterDateOfBirthTextbox(dateOfBirth);
 		sendKeysToElement(addressTextarea, address);
 		sendKeysToElement(cityTextbox, city);
@@ -145,7 +146,7 @@ public class Topic_07_Textbox_TextArea {
 		sendKeysToElement(pinTextbox, editedPin);
 		sendKeysToElement(phoneTextbox, editedPhone);
 
-		String editedEmail = "ranari" + getCurrentDateAndTime() + "@yahoo.com";
+		String editedEmail = "ranari" + getStringCurrentDateAndTime() + "@yahoo.com";
 
 		sendKeysToElement(emailTextbox, editedEmail);
 		driver.findElement(submitBtn).click();
@@ -160,7 +161,7 @@ public class Topic_07_Textbox_TextArea {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
@@ -170,17 +171,10 @@ public class Topic_07_Textbox_TextArea {
 		element.sendKeys(value);
 	}
 
-	public String getCurrentDateAndTime() {
+	public String getStringCurrentDateAndTime() {
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyHH:mm:ss");
 		return dateFormat.format(currentDate).toString().replace(":", "");
-	}
-
-	public void clickGender(String gender) {
-		if (gender == "male")
-			driver.findElement(maleGenderRadioBtn).click();
-		else
-			driver.findElement(femaleGenderRadioBtn).click();
 	}
 
 	public void enterDateOfBirthTextbox(String date) {
@@ -204,4 +198,5 @@ public class Topic_07_Textbox_TextArea {
 			e.printStackTrace();
 		}
 	}
+	
 }

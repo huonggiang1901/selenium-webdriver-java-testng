@@ -17,16 +17,16 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_15_Javascript_Executor {
+	
 	WebDriver driver;
 	JavascriptExecutor js;
 
 	String projectPath = System.getProperty("user.dir");
 
-	String email = "kane" + getcurrentDateAndTime() + "@gmail.net";
+	String email = "kane" + getStringCurrentDateAndTime() + "@gmail.net";
 
 	@BeforeClass
-	public void BeforeClass() {
-
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 
@@ -307,11 +307,11 @@ public class Topic_15_Javascript_Executor {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
-	public String getcurrentDateAndTime() {
+	public String getStringCurrentDateAndTime() {
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyHH:mm:ss");
 		return dateFormat.format(currentDate).toString().replace(":", "");

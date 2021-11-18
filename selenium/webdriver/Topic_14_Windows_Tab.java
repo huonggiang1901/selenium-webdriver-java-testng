@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_14_Windows_Tab {
+	
 	WebDriver driver;
 	Alert alert;
 	JavascriptExecutor js;
@@ -24,10 +25,10 @@ public class Topic_14_Windows_Tab {
 	String projectPath = System.getProperty("user.dir");
 
 	@BeforeClass
-	public void BeforeClass() {
-
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
+		
 		js = (JavascriptExecutor) driver;
 		expliciteWait = new WebDriverWait(driver, 15);
 
@@ -184,11 +185,10 @@ public class Topic_14_Windows_Tab {
 		System.out.println("	Step 10: Verify message xuất hiện: The comparision list was cleared.");
 		Assert.assertTrue(
 				driver.findElement(By.xpath("//span[text()='The comparison list was cleared.']")).isDisplayed());
-
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 

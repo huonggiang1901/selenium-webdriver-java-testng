@@ -36,7 +36,7 @@ public class Topic_04_Xpath_Css_II {
 	String phoneNumber = "0987654321";
 
 	@BeforeClass
-	public void BeforeCLass() {
+	public void beforeCLass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
 
@@ -133,7 +133,6 @@ public class Topic_04_Xpath_Css_II {
 		System.out.println("	Step 04 - Kiểm tra error message hiển thị tại Password và Confirm Password");
 		Assert.assertEquals(driver.findElement(passwordErrorMsg).getText(), "Mật khẩu phải có ít nhất 6 ký tự");
 		Assert.assertEquals(driver.findElement(confirmPaswordErrorMsg).getText(), "Mật khẩu phải có ít nhất 6 ký tự");
-
 	}
 
 	@Test
@@ -207,7 +206,7 @@ public class Topic_04_Xpath_Css_II {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 }

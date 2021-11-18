@@ -54,12 +54,13 @@ public class Topic_05_DataProvider {
 	public Object[][] loginData(Method method) {
 		Object[][] obj = null;
 		if (method.getName().contains("Resister_To_System")) {
-			obj = new Object[][] { { "selenium" + getCurrentDateAndTime() + "@gmail.com", "111111" },
-					{ "selenium" + getCurrentDateAndTime() + "@gmail.com", "111111" },
-					{ "selenium" + getCurrentDateAndTime() + "@gmail.com", "111111" }, };
+			obj = new Object[][] { { "selenium" + getStringCurrentDateAndTime() + "@gmail.com", "111111" },
+					{ "selenium" + getStringCurrentDateAndTime() + "@gmail.com", "111111" },
+					{ "selenium" + getStringCurrentDateAndTime() + "@gmail.com", "111111" }, };
 		} else if (method.getName().contains("Login_To_System")) {
-			obj = new Object[][] { { "selenium_11_01@gmail.com", "111111" }, { "selenium_11_02@gmail.com", "111111" },
-					{ "selenium_11_03@gmail.com", "111111" }, };
+			obj = new Object[][] { { "selenium_11_01@gmail.com", "111111" }, 
+								   { "selenium_11_02@gmail.com", "111111" },
+								   { "selenium_11_03@gmail.com", "111111" }, };
 		}
 
 		return obj;
@@ -70,9 +71,10 @@ public class Topic_05_DataProvider {
 		driver.quit();
 	}
 
-	public String getCurrentDateAndTime() {
+	public String getStringCurrentDateAndTime() {
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyHH:mm:ss");
 		return dateFormat.format(currentDate).toString().replace(":", "");
 	}
+	
 }

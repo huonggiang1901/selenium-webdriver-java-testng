@@ -14,11 +14,10 @@ import org.testng.annotations.Test;
 public class Topic_17_Wait_Part_II_Find_Element {
 
 	WebDriver driver;
-
 	String projectPath = System.getProperty("user.dir");
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 
@@ -75,7 +74,8 @@ public class Topic_17_Wait_Part_II_Find_Element {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
+	
 }

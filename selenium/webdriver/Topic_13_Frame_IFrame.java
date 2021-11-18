@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_13_Frame_IFrame {
+	
 	WebDriver driver;
 	WebDriverWait expliciteWait;
 	Select select;
@@ -23,9 +24,10 @@ public class Topic_13_Frame_IFrame {
 	String projectPath = System.getProperty("user.dir");
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
+		
 		expliciteWait = new WebDriverWait(driver, 15);
 
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -116,7 +118,8 @@ public class Topic_13_Frame_IFrame {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
+	
 }

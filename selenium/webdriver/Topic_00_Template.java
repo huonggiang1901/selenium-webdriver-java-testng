@@ -19,6 +19,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_00_Template {
+	
 	WebDriver driver;
 	JavascriptExecutor js;
 	Calendar calendar;
@@ -28,7 +29,7 @@ public class Topic_00_Template {
 	
 	
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 //		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 //		driver = new FirefoxDriver();
 		
@@ -50,7 +51,7 @@ public class Topic_00_Template {
 	}
 	
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 	
@@ -62,18 +63,19 @@ public class Topic_00_Template {
 		}
 	}
 
-	public String getCurrentDateAndTime() {
+	public String getStringCurrentDateAndTime() {
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyHH:mm:ss");
 		return dateFormat.format(currentDate).toString().replace(":", "");
 	}
 	
-	public int getCurrentDate() {
+	public int getCurrentDay() {
 		return calendar.get(Calendar.DAY_OF_MONTH);
 	}
 	
-	public void scrollIntoView(WebElement element) {
-		js.executeScript("arguments[0].scrollIntoView();", element);
+	public WebElement scrollToTop(WebElement element) {
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+		return element;
 	}
 	
 	public boolean isElementDisplayed(By locator) {
@@ -128,4 +130,5 @@ public class Topic_00_Template {
 			explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(acceptCookies));
 		}
 	}
+	
 }

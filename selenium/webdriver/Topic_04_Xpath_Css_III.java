@@ -30,13 +30,12 @@ public class Topic_04_Xpath_Css_III {
 	String firstName = "Automation";
 	String lastName = "Testing";
 	String fullName = firstName + " " + lastName;
-	String email = "automationtest" + getCurrentDateAndTime() + "@gmail.net";
+	String email = "automationtest" + getStringCurrentDateAndTime() + "@gmail.net";
 	String password = "123456";
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-
 		driver = new FirefoxDriver();
 
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -99,7 +98,6 @@ public class Topic_04_Xpath_Css_III {
 
 		System.out.println("	Step 09: Kiểm tra hệ thống navigate về Home page sau khi logout thành công");
 		Assert.assertEquals(driver.getTitle(), "Home page");
-
 	}
 
 	@Test
@@ -137,7 +135,7 @@ public class Topic_04_Xpath_Css_III {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
@@ -149,7 +147,7 @@ public class Topic_04_Xpath_Css_III {
 		}
 	}
 
-	public String getCurrentDateAndTime() {
+	public String getStringCurrentDateAndTime() {
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyHH:mm:ss");
 		return dateFormat.format(currentDate).toString().replace(":", "");

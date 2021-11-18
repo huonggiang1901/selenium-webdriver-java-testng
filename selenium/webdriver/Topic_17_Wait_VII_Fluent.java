@@ -19,24 +19,22 @@ import org.testng.annotations.Test;
 import com.google.common.base.Function;
 
 public class Topic_17_Wait_VII_Fluent {
-
+	
+	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 
 	FluentWait<WebDriver> fluentWaitDriver;
 	FluentWait<WebElement> fluentWaitElement;
 
-	WebDriver driver;
 	WebDriverWait explicitWait;
 	JavascriptExecutor jsExecutor;
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-
 		driver = new ChromeDriver();
 
 		driver.manage().window().maximize();
-
 	}
 
 	@Test
@@ -69,7 +67,6 @@ public class Topic_17_Wait_VII_Fluent {
 						return element.getText().endsWith("00");
 					}
 				});
-
 	}
 
 	@Test
@@ -123,7 +120,7 @@ public class Topic_17_Wait_VII_Fluent {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
@@ -230,4 +227,5 @@ public class Topic_17_Wait_VII_Fluent {
 		};
 		return explicitWait.until(jQueryLoad) && explicitWait.until(jsLoad);
 	}
+	
 }

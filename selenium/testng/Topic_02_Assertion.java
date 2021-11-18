@@ -11,6 +11,7 @@ public class Topic_02_Assertion {
 		boolean status = 3 > 5;
 		
 		Assert.assertTrue(status);
+		
 //		Assert.assertTrue(status, "3 less than 5");
 		
 		Assert.assertFalse(status);

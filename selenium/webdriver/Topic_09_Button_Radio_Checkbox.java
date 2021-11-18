@@ -19,6 +19,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_09_Button_Radio_Checkbox {
+	
 	WebDriver driver;
 	JavascriptExecutor js;
 	WebDriverWait explicitWait;
@@ -36,13 +37,13 @@ public class Topic_09_Button_Radio_Checkbox {
 	By checkedCheckbox = By.xpath("//span[text()='Checked']/preceding-sibling::span/input");
 	By indeterminateCheckbox = By.xpath("//span[text()='Indeterminate']/preceding-sibling::span/input");
 	
-	String email = "kane" + getCurrentDateAndTime() + "@gmail.net";
+	String email = "kane" + getStringCurrentDateAndTime() + "@gmail.net";
 	String password = "12345678";
 	String loginBtnBackgroundColor = "#C92127";
 	String season = "Summer";
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -181,17 +182,23 @@ public class Topic_09_Button_Radio_Checkbox {
 		driver.findElement(By.xpath("//div[@aria-label='Cần Thơ']")).click();
 		
 		System.out.println("	Step 04: Kiểm tra 'Cần Thơ' radio button là đã được chọn");
-		Assert.assertEquals(driver.findElement(By.xpath("//div[@aria-label='Cần Thơ']")).getAttribute("aria-checked"), "true");
-
-		
+		Assert.assertEquals(driver.findElement(By.xpath("//div[@aria-label='Cần Thơ']")).getAttribute("aria-checked"), "true");		
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
+	
+	public void sleepInSeconds(int seconds) {
+		try {
+			TimeUnit.SECONDS.sleep(seconds);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 		
-	public String getCurrentDateAndTime() {
+	public String getStringCurrentDateAndTime() {
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyHH:mm:ss");
 		return dateFormat.format(currentDate).toString().replace(":", "");
@@ -218,6 +225,7 @@ public class Topic_09_Button_Radio_Checkbox {
 	}
 
 	public void clickAcceptCookiesBtn(By acceptCookies) {
+		driver.findElement(By.xpath("//div[@class='qual_x_close']")).click();
 		List<WebElement> acceptCookiesBtn = driver.findElements(acceptCookies);
 		if (acceptCookiesBtn.size() > 0) {
 			driver.findElement(acceptCookies).click();

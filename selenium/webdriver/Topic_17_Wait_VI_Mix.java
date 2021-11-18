@@ -13,16 +13,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_17_Wait_VI_Mix {
-
+	
+	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 
-	WebDriver driver;
 	WebDriverWait explicitWait;
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-
 		driver = new FirefoxDriver();
 
 		driver.manage().window().maximize();
@@ -85,7 +84,6 @@ public class Topic_17_Wait_VI_Mix {
 			e.printStackTrace();
 		}
 		System.out.println("2.2 - End explicit wait: " + getCurrentDateTime());
-
 	}
 
 //	@Test
@@ -102,7 +100,6 @@ public class Topic_17_Wait_VI_Mix {
 			e.printStackTrace();
 		}
 		System.out.println("2.2 - End explicit wait: " + getCurrentDateTime());
-
 	}
 
 	@Test
@@ -122,11 +119,12 @@ public class Topic_17_Wait_VI_Mix {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
 	public String getCurrentDateTime() {
 		return new Date().toString();
 	}
+	
 }

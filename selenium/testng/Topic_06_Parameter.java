@@ -18,13 +18,13 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class Topic_06_Parameter {
+	
 	WebDriver driver;
 	Select select;
 	String projectPath = System.getProperty("user.dir");
 
 	By countryDropdown = By.xpath("//select[@id='where_country']");
 
-	By maleGenderRadioBtn = By.xpath("//input[@id='gender-male']");
 	By femaleGenderRadioBtn = By.xpath("//input[@id='gender-female']");
 	By firstNameTextbox = By.xpath("//input[@id='FirstName']");
 	By lastNameTextbox = By.xpath("//input[@id='LastName']");
@@ -40,7 +40,6 @@ public class Topic_06_Parameter {
 	String selectedCountry = "Vietnam";
 	String resultCount = "29";
 
-	String gender = "female";
 	String firstName = "Jan";
 	String lastName = "Kane";
 	String dayOfBirth = "1";
@@ -55,8 +54,7 @@ public class Topic_06_Parameter {
 
 	@Parameters({ "browser", "environment" })
 	@BeforeClass
-	public void BeforeClass(String browserName, @Optional("LOCAL") String environmentName) {
-
+	public void beforeClass(String browserName, @Optional("LOCAL") String environmentName) {
 		switch (browserName) {
 		case "firefox":
 			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
@@ -78,7 +76,7 @@ public class Topic_06_Parameter {
 	@Test
 	public void TC_NopCommerce() {
 
-		System.out.println("\nTC 03 - Xử lí HTML Dropdown List02");
+		System.out.println("\nTC - Nop Commerce");
 
 		System.out.println("	Step 01: Truy cập trang: https://demo.nopcommerce.com/register");
 		driver.get("https://demo.nopcommerce.com/register");
@@ -87,7 +85,7 @@ public class Topic_06_Parameter {
 		driver.findElement(By.xpath("//a[text()='Register']")).click();
 
 		System.out.println("	Step 03: Input các thông tin hợp lệ vào form");
-		clickGender(gender);
+		driver.findElement(femaleGenderRadioBtn).click();
 		sendKeysToElement(firstNameTextbox, firstName);
 		sendKeysToElement(lastNameTextbox, lastName);
 
@@ -107,7 +105,7 @@ public class Topic_06_Parameter {
 		Assert.assertEquals(String.valueOf(select.getOptions().size()), yearTotalOptions);
 		select.selectByVisibleText(yearOfBirth);
 
-		String email = "kane" + getCurrentDateAndTime() + "@gmail.net";
+		String email = "kane" + getStringCurrentDateAndTime() + "@gmail.net";
 
 		sendKeysToElement(emailTextbox, email);
 		sendKeysToElement(companyNameTextbox, companyName);
@@ -134,21 +132,14 @@ public class Topic_06_Parameter {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
-	public String getCurrentDateAndTime() {
+	public String getStringCurrentDateAndTime() {
 		Date currentDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyHH:mm:ss");
 		return dateFormat.format(currentDate).toString().replace(":", "");
-	}
-
-	public void clickGender(String gender) {
-		if (gender == "male")
-			driver.findElement(maleGenderRadioBtn).click();
-		else
-			driver.findElement(femaleGenderRadioBtn).click();
 	}
 
 	public void sendKeysToElement(By locator, String value) {
@@ -156,4 +147,5 @@ public class Topic_06_Parameter {
 		element.clear();
 		element.sendKeys(value);
 	}
+	
 }

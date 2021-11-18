@@ -15,6 +15,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class Topic_10_Alert {
+	
 	WebDriver driver;
 	WebDriverWait expliciteWait;
 	Alert alert;
@@ -30,7 +31,7 @@ public class Topic_10_Alert {
 	String password = "admin";
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -121,7 +122,6 @@ public class Topic_10_Alert {
 				"	Step 03: Verify message hiển thị sau khi login thành công: Congratulations! You must have the proper credential");
 		Assert.assertEquals(driver.findElement(By.xpath("//div[@class='example']/p")).getText().trim(),
 				"Congratulations! You must have the proper credentials.");
-
 	}
 
 	@Test
@@ -142,7 +142,8 @@ public class Topic_10_Alert {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
+	
 }

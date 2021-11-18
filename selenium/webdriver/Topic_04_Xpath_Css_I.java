@@ -16,7 +16,7 @@ public class Topic_04_Xpath_Css_I {
 	String projectPath = System.getProperty("user.dir");
 
 	@BeforeClass
-	public void BeforeClass() {
+	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
 
@@ -121,7 +121,7 @@ public class Topic_04_Xpath_Css_I {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 }

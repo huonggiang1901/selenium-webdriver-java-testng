@@ -19,7 +19,6 @@ import org.testng.annotations.Test;
 public class Topic_16_Upload_Files_II {
 	
 	WebDriver driver;
-
 	String projectPath = System.getProperty("user.dir");
 
 	String chromeUploadOneTime = projectPath + "\\autoIT\\chromeUploadOneTime.exe";
@@ -29,8 +28,7 @@ public class Topic_16_Upload_Files_II {
 	String image01Path = projectPath + "\\uploadFiles\\" + image01;
 
 	@BeforeClass
-	public void BeforeClass() {
-
+	public void beforeClass() {
 		System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 
@@ -105,7 +103,7 @@ public class Topic_16_Upload_Files_II {
 	}
 
 	@AfterClass
-	public void AfterClass() {
+	public void afterClass() {
 		driver.quit();
 	}
 
@@ -116,4 +114,5 @@ public class Topic_16_Upload_Files_II {
 			e.printStackTrace();
 		}
 	}
+	
 }
