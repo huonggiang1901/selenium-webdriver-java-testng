@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libraries/selenium-server-standalone-3.141.59.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libraries/testng-6.14.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/bcpkix-jdk15on-1.64.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/bcprov-jdk15on-1.64.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/checker-qual-3.8.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/commons-codec-1.13.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/commons-compress-1.20.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/commons-io-2.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/commons-lang-2.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/dec-0.1.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-3.2.11.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-api-3.2.11.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-core-3.2.11.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-transport-3.2.11.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-transport-httpclient5-3.2.11.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/error_prone_annotations-2.5.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/failureaccess-1.0.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/gson-2.8.8.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/guava-30.1.1-jre.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/httpclient5-5.0.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/httpcore5-5.0.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/j2objc-annotations-1.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jackson-annotations-2.10.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jackson-core-2.10.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jackson-databind-2.10.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jcl-over-slf4j-1.7.30.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jna-5.8.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jsoup-1.14.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jsr305-3.0.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/slf4j-api-1.7.32.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/webdrivermanager-5.0.2.jar!/" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/../03-Java Automation Framework/javaTester" expected_position="0" />
+      <src_folder value="file://$MODULE_DIR$/../03-Java Automation Framework/testcases" expected_position="1" />
+      <src_folder value="file://$MODULE_DIR$/../03-Java Automation Framework/testdata" expected_position="2" />
+      <src_folder value="file://$MODULE_DIR$/../03-Java Automation Framework/actions" expected_position="3" />
+      <src_folder value="file://$MODULE_DIR$/../03-Java Automation Framework/interfaces" expected_position="4" />
+      <src_folder value="file://$MODULE_DIR$/../03-Java Automation Framework/resources" expected_position="5" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../03-Java Automation Framework/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../03-Java Automation Framework">
+      <sourceFolder url="file://$MODULE_DIR$/../03-Java Automation Framework/actions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../03-Java Automation Framework/interfaces" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../03-Java Automation Framework/javaTester" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../03-Java Automation Framework/resources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../03-Java Automation Framework/testcases" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../03-Java Automation Framework/testdata" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library name="selenium-server-standalone-3.141.59.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libraries/selenium-server-standalone-3.141.59.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libraries/client-combined-3.141.59-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="testng-6.14.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libraries/testng-6.14.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="bcpkix-jdk15on-1.64.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/bcpkix-jdk15on-1.64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="bcprov-jdk15on-1.64.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/bcprov-jdk15on-1.64.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="checker-qual-3.8.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/checker-qual-3.8.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-codec-1.13.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/commons-codec-1.13.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-compress-1.20.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/commons-compress-1.20.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-io-2.6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/commons-io-2.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-lang-2.6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/commons-lang-2.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="dec-0.1.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/dec-0.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="docker-java-3.2.11.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-3.2.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="docker-java-api-3.2.11.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-api-3.2.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="docker-java-core-3.2.11.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-core-3.2.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="docker-java-transport-3.2.11.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-transport-3.2.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="docker-java-transport-httpclient5-3.2.11.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/docker-java-transport-httpclient5-3.2.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="error_prone_annotations-2.5.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/error_prone_annotations-2.5.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="failureaccess-1.0.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/failureaccess-1.0.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gson-2.8.8.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/gson-2.8.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="guava-30.1.1-jre.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/guava-30.1.1-jre.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="httpclient5-5.0.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/httpclient5-5.0.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="httpcore5-5.0.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/httpcore5-5.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="j2objc-annotations-1.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/j2objc-annotations-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jackson-annotations-2.10.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jackson-annotations-2.10.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jackson-core-2.10.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jackson-core-2.10.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jackson-databind-2.10.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jackson-databind-2.10.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jcl-over-slf4j-1.7.30.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jcl-over-slf4j-1.7.30.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jna-5.8.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jna-5.8.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jsoup-1.14.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jsoup-1.14.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jsr305-3.0.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/jsr305-3.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="slf4j-api-1.7.32.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/slf4j-api-1.7.32.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="webdrivermanager-5.0.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../03-Java Automation Framework/libWebDriverManager/webdrivermanager-5.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
